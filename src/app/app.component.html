@@ -1,61 +1,69 @@
-<div class="weather-app">
+<div class="weather-app" ><!--[style.background-image]="'url(' + getImageUrl + ')'"old method for BI--> 
   <div class="container" *ngIf="weatherData">
     <h3 class="brand">the Wheather</h3>
       <div>
-        <h1 class="temp">{{weatherData.temp}}&#176;</h1>
+        <h1 class="temp">{{weatherData.current.temp_c}}&#176;</h1>
         <div class="city-name">
-          <h1 class="name">New Delhi</h1>
+          <h1 class="name">{{weatherData.location.name}}</h1>
           <small>
-            <span class="time">07:45</span>
+            <span class="time">{{weatherData.location.localtime}}</span>
             - 
             <span class="date">
-              Monday Sep 19
             </span>
           </small>
         </div>
         <div class="weather">
           <img 
-            src="" 
+            src ={{weatherData.current.condition.icon}} 
             alt="icon" 
             class="icon"
             width="50"
             height="50"
           />
-          <span class="condition">Cloudy</span>
+          <span class="condition">{{weatherData.current.condition.text}}</span>
         </div>
       </div>
     </div>
     <div class="panel">
-      <form id="locationInput">
+      <form id="locationInput" #form="ngForm"  (submit)="onSubmit()">
         <input 
           type="text" 
           class="search"
           placeholder="Search Location.."
+          name = "city"
+          [(ngModel)]="cityName"
         />
-        <button type="submit" class="submit">
-        </button>
+        <button type="submit" class="submit"><i class="fa fa-search"></i></button>
       </form>
-  
+
       <ul class="cities">
-        <li class="city">New York</li>
-        <li class="city">California</li>
-        <li class="city">Paris</li>
-        <li class="city">Tokyo</li>
+        <li class="city" (click)="onNewyork()">New York</li>
+        <li class="city" (click)="onCalifornia()">California</li>
+        <li class="city" (click)="onParis()">Paris</li>
+        <li class="city" (click)="onTokyo()">Tokyo</li>
       </ul>
-  
+
       <ul class="details">
         <h4 >Weather Details</h4>
         <li>
-          <span>MinTemp</span>
-          <span class="cloud">{{weatherData?.min_temp}}&#176;</span>
+          <span>Cloud</span>
+          <span class="cloud">{{weatherData?.current?.cloud}}</span>
         </li>
         <li>
           <span>Humidity</span>
-          <span class="humidity">{{weatherData?.humidity}}%</span>
+          <span class="humidity">{{weatherData?.current?.humidity}}%</span>
         </li>
         <li>
           <span>Wind</span>
-          <span class="wind">{{weatherData?.wind_speed}}km/h</span>
+          <span class="wind">{{weatherData?.current?.wind_kph}}km/h</span>
+        </li>
+        <li>
+          <span>Feelslike</span>
+          <span class="wind">{{weatherData?.current?.feelslike_c}}℃</span>
+        </li>
+        <li>
+          <span>Gust</span>
+          <span class="wind">{{weatherData?.current?.gust_kph}}km/h</span>
         </li>
       </ul>
     </div>
