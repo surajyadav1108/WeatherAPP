@@ -2,19 +2,19 @@ body {
     margin: 0;
     font-family: 'Rubik', sans-serif;
     background: #111;
+    background-size: cover;
 }
 
-* {
+*{
     box-sizing: border-box;
 }
 
-h1,h3 {
+h1, h3 {
     font-weight: 400;
 }
 
 .weather-app {
     min-height: 100vh;
-    background-image: url(./assets/pexels-barnabas-davoti-8963333.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -57,6 +57,7 @@ h1,h3 {
 
 }
 
+
 .city-time,
 .temp,
 .weather {
@@ -79,7 +80,7 @@ h1,h3 {
     display: block;
     margin: 0.5em 0;
 }
-
+ 
 .panel {
     position:absolute;
     width: 40%;
@@ -108,14 +109,15 @@ h1,h3 {
     padding: 1.5em;
     margin: 0;
     border: none;
-    background: #fa6d1b;
+    outline: none;
+    background:  #28282B;
     color: #fff;
     cursor: pointer;
     font-size: 1.2em;
     transition: 0.4s ;
 }
 
-.submi:hover {
+.submit:hover {
     background: #fff !important;
     color: #000;
 
@@ -184,10 +186,22 @@ h1,h3 {
     html {
         font-size: 12px;
     }
+    .panel {
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(3px);
+    }
+
 }
 
 @media screen and (max-width: 300px) {
     .weather-app {
         min-height: 40em;
     }
+    .panel {
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+    
+    }
 }
+
+
