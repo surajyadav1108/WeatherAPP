@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherData } from './models/weather.model';
+import { UnsplashService } from './services/Unsplash.service';
 import { WeatherserviceService } from './services/weatherservice.service';
 
 @Component({
@@ -7,22 +8,89 @@ import { WeatherserviceService } from './services/weatherservice.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit  {
+  photos: any; // new variable for unsplash
 
+  constructor(private wheatherService: WeatherserviceService , private unsplashService: UnsplashService) { 
 
-  myScriptElement: HTMLScriptElement; // try for weatherjs embed
-
-
-  constructor( private wheatherService: WeatherserviceService) {
-    this.myScriptElement = document.createElement("script"); //try for weatherjs embed
-    this.myScriptElement.src = "src/assets/wheather.js"; //try for weatherjs embed
-    document.body.appendChild(this.myScriptElement); //try for weatherjs embed
   }
 
+  cityName: string = 'New Delhi';
   weatherData?: WeatherData;
+  getImageUrl: string = '';
+ 
 
   ngOnInit(): void{
-    this.wheatherService.getWheatherData('New Delhi')
+    
+    this.getweatherData(this.cityName);
+    this.cityName = '';
+
+
+    this.unsplashService.getPhotos('new delhi').subscribe(photos => {      // opening of the app /////////////////////////
+      this.photos = photos;
+      document.body.style.backgroundImage = `url(${this.photos.results[0].urls.raw})`;
+    });
+
+  }
+
+  
+
+  onSubmit() {
+    if(this.cityName == ''){
+      alert("please type city name first"); // created an alert message here for empty input.
+    }else {
+      this.getweatherData(this.cityName);
+      this.unsplashService.getPhotos(this.cityName).subscribe(photos => {   //fetches background image for the city
+        this.photos = photos;
+        document.body.style.backgroundImage = `url(${this.photos.results[0].urls.raw})`;
+      });
+
+      this.cityName = '';  
+    }
+  }
+  // this is not a good code format will change it later as i  have created a single function for each click
+  onNewyork(){
+    this.getweatherData('New york');
+    this.unsplashService.getPhotos('New york').subscribe(photos => {
+      this.photos = photos;
+      document.body.style.backgroundImage = `url(${this.photos.results[0].urls.raw})`;
+    });
+
+  }
+
+  onCalifornia(){
+    this.getweatherData('California');
+    this.unsplashService.getPhotos('California').subscribe(photos => {
+      this.photos = photos;
+      document.body.style.backgroundImage = `url(${this.photos.results[0].urls.raw})`;
+    });
+
+  }
+
+  onParis(){
+    this.getweatherData('Paris');
+    this.unsplashService.getPhotos('Paris').subscribe(photos => {
+      this.photos = photos;
+      document.body.style.backgroundImage = `url(${this.photos.results[0].urls.raw})`;
+    });
+
+  }
+
+  onTokyo(){
+    this.getweatherData('Tokyo');
+    this.unsplashService.getPhotos('Tokyo').subscribe(photos => {
+      this.photos = photos;
+      document.body.style.backgroundImage = `url(${this.photos.results[0].urls.raw})`;
+    });
+
+  }
+//////////////////////////////////////////////////////////////////////// subscribing the service down below
+  
+
+  private getweatherData(cityName: string) {
+
+    this.wheatherService.getWheatherData(cityName)
     .subscribe({
       next: (response) => {
         this.weatherData = response; 
@@ -31,7 +99,21 @@ export class AppComponent implements OnInit  {
       }
     });
     
+    
+
+    
+
+
+
   }
+
+
+  
+
 }
+
+/////////////////////////////////////////////////////////////////////////////////
+
+
 
 
