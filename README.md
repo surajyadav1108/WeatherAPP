@@ -13,6 +13,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Interface
 
 This Simple WeatherApp will let you know the current weather of the Any city that you want from over 1000s of cities in the world. it will give you the current weather details as will as wind speed, gust, humidity etc. In addition to that it Will also render a background Image for that particular city so that you get the feel of the place what it looks like.
+Original Design Credits-  [ArhurK](https://dribbble.com/shots/7118235-Weather-DailyUI-037)
 
 ## APIs
 to fetch the data for weather and cities I have used two APIs..
