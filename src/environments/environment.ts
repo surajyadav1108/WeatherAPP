@@ -4,11 +4,17 @@
 
 export const environment = {
   production: false,
-  weatherApiBaseUrl: 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather',
+  weatherApiBaseUrl: 'http://api.weatherapi.com/v1/current.json?key=dedd680565dd4a3eb7160345222112',
   XRapidAPIHostHeaderName: 'X-RapidAPI-Host',
-  XRapidAPIHostHeaderValue: 'weather-by-api-ninjas.p.rapidapi.com',
+  XRapidAPIHostHeaderValue: 'api.weatherapi.com',
   XRapidAPIKeyHeaderKeyName: 'X-RapidAPI-Key',
-  XRapidAPIKeyHeaderKeyValue: 'c9dc98dc3bmsh5dd8e256b0bf7c0p171557jsn5b5059d15127'
+  XRapidAPIKeyHeaderKeyValue: 'dedd680565dd4a3eb7160345222112',
+
+
+
+  //old method for backgroundimage 
+
+  //UnsplashServicebaseURL:'https://api.unsplash.com/search/photos/?query=${q}&client_id=XIG1unSfHk9jeKa_DaaZXcClgkZO2Vd43k0Q2-52PbQ',
 };
 
 /*
