@@ -19,3 +19,6 @@ Original Design Credits-  [ArhurK](https://dribbble.com/shots/7118235-Weather-Da
 to fetch the data for weather and cities I have used two APIs..
 - [WeatherApi](https://www.weatherapi.com/) to fetch the Weather Data
 - [Unsplash](https://unsplash.com/documentation) to fetch the background image according to the city
+![Screenshot 2023-01-07 200346](https://user-images.githubusercontent.com/91555602/213977856-aadf1380-89bd-4cab-a416-57eb31d47655.jpg)
+![Screenshot 2023-01-07 200514](https://user-images.githubusercontent.com/91555602/213977890-8cd80c7e-c310-4555-ae89-4d07f2![Screenshot 2023-01-07 200448](https://user-images.githubusercontent.com/91555602/213977910-1fc6b040-90a3-40a6-bc76-386e04c5036d.jpg)
+eba9b1.jpg)
