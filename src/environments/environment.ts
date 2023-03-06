@@ -12,9 +12,7 @@ export const environment = {
 
 
 
-  //old method for backgroundimage 
-
-  //UnsplashServicebaseURL:'https://api.unsplash.com/search/photos/?query=${q}&client_id=XIG1unSfHk9jeKa_DaaZXcClgkZO2Vd43k0Q2-52PbQ',
+  
 };
 
 /*
