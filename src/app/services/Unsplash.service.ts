@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-//import { environment } from 'src/environments/environment';
-//import { HttpHeaders } from'@angular/common/http';
-//import { HttpParams } from'@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +12,7 @@ export class UnsplashService {
   //   return this.http.get(environment.UnsplashServicebaseURL, {
   //       headers: new HttpHeaders(),
   //       params: new HttpParams()
-  //       .set('q' , cityName)                         //old method for the background image
+  //       .set('q' , cityName)                         ///old method for the background image no longer needed so commented out
   //   })
   
   // }
